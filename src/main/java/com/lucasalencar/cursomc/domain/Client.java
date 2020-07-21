@@ -28,6 +28,8 @@ public class Client implements Serializable {
     @CollectionTable(name = "phone")
     private Set<String> phone = new HashSet<>();
 
+    private List<Order> orders = new ArrayList<>();
+
     public Client(){}
 
     public Client(Integer id, String name, String email, String cpfOrCnpj, TypeClient typeClient) {
@@ -95,6 +97,14 @@ public class Client implements Serializable {
         this.phone = phone;
     }
 
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -107,4 +117,5 @@ public class Client implements Serializable {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 }
