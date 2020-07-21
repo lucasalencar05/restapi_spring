@@ -1,5 +1,8 @@
 package com.lucasalencar.cursomc.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,6 +19,7 @@ public class State implements Serializable {
     private Integer id;
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "state")
     private List<Country> countries = new ArrayList<>();
 
